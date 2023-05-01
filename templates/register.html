@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.flex-r ,.flex-c {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.flex-c{
+    flex-direction: column;
+}
+.flex-r{
+    flex-direction: row;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 10px;
+    background: #343434;  
+}
+
+.login-text{
+    background-color: #F6F6F6;
+    min-width: 400px;
+    max-width: 450px;
+    min-height: 530px;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.logo{
+    margin-bottom: 20px;
+}
+.logo span , .logo span i{
+    font-size: 25px;
+    color:#0d8aa7 ;
+}
+
+.login-text h1{
+    font-size: 25px;
+}
+.login-text p{
+    font-size: 15px;
+    color: #000000B2;
+}
+
+form{
+    align-items: flex-start !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.input-box{
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.label{
+    font-size: 15px;
+    color: black;
+    margin-bottom: 3px;
+}
+
+.input{
+    background-color: #F6F6F6;
+    padding: 0px 5px;
+    border: 2px solid rgba(216, 216, 216, 1);
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+input{
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    background-color: #F6F6F6;
+    flex: 1;
+}
+.input i{
+    color:rgba(0, 0, 0, 0.4);
+}
+
+.check span{
+    color:#000000B2;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.btn{
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 15px;
+    background: linear-gradient(122.33deg, #68bed1 30.62%, #1E94E9 100%);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s linear;
+}
+
+.btn:hover{
+    transform: translateY(-2px);
+}
+.extra-line{
+    font-size: 15px;
+    font-weight: 600;
+}
+.extra-line a{
+    color: #0095B6;
+}
+
+        .errors{
+            color: red;
+            font-size: small;
+            margin-top: -7px;
+        }
+    </style>
+
+    
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> -->
+
+    <title>Discovery Registration</title>
+</head>
+
+<body>
+    <div class=" flex-r container">
+        <div class="flex-r login-wrapper">
+            <div class="login-text">
+                <div style="display: flex; justify-content: center; margin-top: 10px;" class="logo">
+                    <img width="180" height="100" src="{{ url_for('serve_image', filename='discovery.png') }}" class="d-block w-100" alt="Logo">
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <h1>Register</h1>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <p>Join discovery! </p>
+                </div>
+
+                <div>
+                    <div class="input-box">
+                        <span class="label">Name</span>
+                        <div class=" flex-r input">
+                            <input type="text" placeholder="John" id="name">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <p style="color: red;" class="errors" id="name-error"></p>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="label">Surname</span>
+                        <div class=" flex-r input">
+                            <input type="text" placeholder="Day" id="surname">
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <p style="color: red;" class="errors" id="surname-error"></p>
+                    </div>
+                    
+                    <div class="input-box">
+                        <span class="label">Create Password</span>
+                        <div class="flex-r input">
+                            <input type="password" placeholder="******" id="password">
+                            <i class="fas fa-lock"></i>      
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="label">Confirm Password</span>
+                        <div class="flex-r input">
+                            <input type="password" id="verifypassword" placeholder="******">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <p style="color: red;" class="errors" id="pass-error"></p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center;">
+                        <button class="btn" id="registerbtn">Register</button>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <span class="extra-line">
+                            <span>Already have an account?</span>
+                            <span id="log-in" style="color: #1E94E9; text-decoration: underline; cursor: pointer;">Log in</span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="{{ url_for('serve_script', filename='register.js') }}"></script>
+</body>
+
+</html>
