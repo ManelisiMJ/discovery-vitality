@@ -10,6 +10,6 @@ Members of Discovery Vitality become part of the network and can see all transac
 Builds trust in Vitality due to the security features of blockchain
 
 ## Technologies
-Blockchain nodes are written in python (blockchain.py)
-Exposes RESTful APIs to connect to the blockchain network
+Blockchain nodes are written in python (blockchain.py)\
+Exposes RESTful APIs to connect to the blockchain network\
 HTML, CSS, JavaScript and Bootstrap to create a web app for members to access the network
